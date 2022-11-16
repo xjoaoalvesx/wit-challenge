@@ -34,9 +34,9 @@ public class MessagingService{
                         request
                 );
 
-        System.out.println(response + "debugrestservice");
+        if (response != null) return mapper.readValue(response.getBody(), CalcMessage.class);
 
-        return mapper.readValue(response.getBody(), CalcMessage.class);
+        return null;
 
     }
 

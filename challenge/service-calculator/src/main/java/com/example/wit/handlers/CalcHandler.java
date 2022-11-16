@@ -18,31 +18,32 @@ public class CalcHandler {
     public String calculate (CalcMessage calcmessage) {
         switch (calcmessage.getOperation().toLowerCase()) {
             case "sum":
-                return String.valueOf(calculator.sum(calcmessage.getA(), calcmessage.getB()));
+                return sum(calcmessage);
             case "subtraction":
-                return String.valueOf(calculator.subtraction(calcmessage.getA(), calcmessage.getB()));
+                return subtraction(calcmessage);
             case "division":
-                return String.valueOf(calculator.division(calcmessage.getA(), calcmessage.getB()));
+                return division(calcmessage);
             case "multiplication":
-                return String.valueOf(calculator.multiplication(calcmessage.getA(), calcmessage.getB()));
+                return multiplication(calcmessage);
             default:
-                return null;
+                return "null";
         }
     }
 
     public String sum (CalcMessage calcmessage) {
-        return null;
+        return String.valueOf(calculator.sum(calcmessage.getA(), calcmessage.getB()));
     }
 
     public String subtraction (CalcMessage calcmessage) {
-        return null;
+        return String.valueOf(calculator.subtraction(calcmessage.getA(), calcmessage.getB()));
     }
 
     public String division (CalcMessage calcmessage) {
-        return null;
+        return String.valueOf(calculator.division(calcmessage.getA(), calcmessage.getB()));
     }
 
-    public String multiplicaition (CalcMessage calcmessage) {
-        return null;
+    public String multiplication (CalcMessage calcmessage) {
+        return String.valueOf(calculator.multiplication(calcmessage.getA(), calcmessage.getB()));
     }
+
 }

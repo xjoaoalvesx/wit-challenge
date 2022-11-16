@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 @Service
 public class Calculator implements StandardOperationsCalc{
 
-    private final int precision = 2;
+    private final int precision = 2000;
 
     @Override
     public BigDecimal sum(BigDecimal a, BigDecimal b) {

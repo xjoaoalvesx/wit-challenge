@@ -4,7 +4,6 @@ import com.example.wit.handlers.CalcHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -29,8 +28,6 @@ public class MessagingService {
         ObjectMapper mapper = new ObjectMapper();
         CalcMessage calculation = mapper.readValue(request.getBody(), CalcMessage.class);
         calculation.setResult(calcHandler.calculate(calculation));
-
-        System.out.println(calculation + "debugreceiver");
 
         final String correlationId = request.getMessageProperties().getCorrelationId();
 
