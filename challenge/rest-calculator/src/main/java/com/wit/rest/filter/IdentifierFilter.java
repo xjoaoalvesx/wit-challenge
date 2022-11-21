@@ -16,6 +16,5 @@ public class IdentifierFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         httpServletResponse.addHeader("uniqueid", UUID.randomUUID().toString());
         filterChain.doFilter(httpServletRequest, httpServletResponse);
-        System.out.print(httpServletResponse.getHeaders("uniqueid"));
     }
 }
