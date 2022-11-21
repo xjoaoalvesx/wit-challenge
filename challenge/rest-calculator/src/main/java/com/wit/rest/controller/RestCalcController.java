@@ -1,7 +1,8 @@
-package com.example.wit.controller;
+package com.wit.rest.controller;
 
-import com.example.wit.messaging.CalcMessage;
-import com.example.wit.messaging.MessagingService;
+import com.wit.lib.CalcMessage;
+import com.wit.lib.OperationType;
+import com.wit.rest.messaging.MessagingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +15,7 @@ import java.util.Map;
 @RestController
 public class RestCalcController{
 
-        private final MessagingService service;
-
+    private final MessagingService service;
     public RestCalcController(MessagingService service) {
         this.service = service;
     }
@@ -25,7 +25,7 @@ public class RestCalcController{
             produces="application/json"
     )
     public ResponseEntity<Object> sum(@RequestParam BigDecimal a, @RequestParam BigDecimal b) throws IOException {
-        final CalcMessage msg = new CalcMessage("sum", a, b);
+        final CalcMessage msg = new CalcMessage(OperationType.SUM, a, b);
         final CalcMessage result = service.send(msg);
         return getResponse(result);
     }
@@ -35,7 +35,7 @@ public class RestCalcController{
             produces="application/json"
     )
     public ResponseEntity<Object> subtraction(@RequestParam BigDecimal a, @RequestParam BigDecimal b) throws IOException {
-        final CalcMessage msg = new CalcMessage("subtraction", a, b);
+        final CalcMessage msg = new CalcMessage(OperationType.SUBTRACTION, a, b);
         final CalcMessage result = service.send(msg);
         return getResponse(result);
     }
@@ -45,7 +45,7 @@ public class RestCalcController{
             produces="application/json"
     )
     public ResponseEntity<Object> division(@RequestParam BigDecimal a, @RequestParam BigDecimal b) throws IOException {
-        final CalcMessage msg = new CalcMessage("division", a, b);
+        final CalcMessage msg = new CalcMessage(OperationType.DIVISION, a, b);
         final CalcMessage result = service.send(msg);
         return getResponse(result);
     }
@@ -55,7 +55,7 @@ public class RestCalcController{
             produces="application/json"
     )
     public ResponseEntity<Object> multiplication(@RequestParam BigDecimal a, @RequestParam BigDecimal b) throws IOException {
-        final CalcMessage msg = new CalcMessage("multiplication", a, b);
+        final CalcMessage msg = new CalcMessage(OperationType.MULTIPLICATION, a, b);
         final CalcMessage result = service.send(msg);
         return getResponse(result);
     }

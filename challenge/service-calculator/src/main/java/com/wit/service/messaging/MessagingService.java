@@ -1,6 +1,8 @@
-package com.example.wit.messaging;
+package com.wit.service.messaging;
 
-import com.example.wit.handlers.CalcHandler;
+import com.wit.lib.CalcMessage;
+import com.wit.lib.QueueType;
+import com.wit.service.handlers.CalcHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
@@ -22,7 +24,7 @@ public class MessagingService {
         this.calcHandler = calcHandler;
     }
 
-    @RabbitListener(queues = MessagingConfig.QUEUE1)
+    @RabbitListener(queues = QueueType.QUEUE1)
     public void receiveAndRespond (Message request) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +41,7 @@ public class MessagingService {
         CorrelationData correlationData = new CorrelationData(correlationId);
         template.send(
                 MessagingConfig.EXCHANGE,
-                MessagingConfig.QUEUE2,
+                QueueType.QUEUE2,
                 response,
                 correlationData);
     }

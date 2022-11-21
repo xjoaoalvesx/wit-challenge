@@ -1,7 +1,7 @@
-package com.example.wit.handlers;
+package com.wit.service.handlers;
 
-import com.example.wit.calculator.Calculator;
-import com.example.wit.messaging.CalcMessage;
+import com.wit.service.calculator.Calculator;
+import com.wit.lib.CalcMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,17 +16,17 @@ public class CalcHandler {
     }
 
     public String calculate (CalcMessage calcmessage) {
-        switch (calcmessage.getOperation().toLowerCase()) {
-            case "sum":
+        switch (calcmessage.getOperation()) {
+            case SUM:
                 return sum(calcmessage);
-            case "subtraction":
+            case SUBTRACTION:
                 return subtraction(calcmessage);
-            case "division":
+            case DIVISION:
                 return division(calcmessage);
-            case "multiplication":
+            case MULTIPLICATION:
                 return multiplication(calcmessage);
             default:
-                return "null";
+                return null;
         }
     }
 

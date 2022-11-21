@@ -1,4 +1,4 @@
-package com.example.wit.calculator;
+package com.wit.service.calculator;
 
 import org.springframework.stereotype.Service;
 

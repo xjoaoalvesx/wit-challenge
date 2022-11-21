@@ -1,8 +1,8 @@
-package com.example.wit.messaging;
+package com.wit.rest.messaging;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.amqp.core.AmqpTemplate;
+import com.wit.lib.CalcMessage;
+import com.wit.lib.QueueType;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 @Service
 public class MessagingService{
@@ -29,8 +28,8 @@ public class MessagingService{
 
         Message response = rabbitTemplate
                 .sendAndReceive(
-                        MessagingConfig.EXCHANGE,
-                        MessagingConfig.QUEUE1,
+                        QueueType.EXCHANGE,
+                        QueueType.QUEUE1,
                         request
                 );
 

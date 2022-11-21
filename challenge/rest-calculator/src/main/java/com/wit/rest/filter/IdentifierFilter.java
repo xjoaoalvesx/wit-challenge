@@ -1,4 +1,4 @@
-package com.example.wit.filter;
+package com.wit.rest.filter;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

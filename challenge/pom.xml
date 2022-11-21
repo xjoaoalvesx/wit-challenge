@@ -19,7 +19,8 @@
 	<modules>
 		<module>rest-calculator</module>
 		<module>service-calculator</module>
-	</modules>
+        <module>calculator-lib</module>
+    </modules>
 
 	<properties>
 		<java.version>11</java.version>

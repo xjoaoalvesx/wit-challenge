@@ -1,4 +1,4 @@
-package com.example.wit.model;
+package com.wit.rest.model;
 
 public class ResultModel {
     private String result;

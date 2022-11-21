@@ -1,4 +1,4 @@
-package com.example.wit;
+package com.wit.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
