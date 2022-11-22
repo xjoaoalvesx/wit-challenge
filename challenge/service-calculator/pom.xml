@@ -30,6 +30,10 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.example.wit</groupId>
             <artifactId>calculator-lib</artifactId>
             <version>0.0.1-SNAPSHOT</version>

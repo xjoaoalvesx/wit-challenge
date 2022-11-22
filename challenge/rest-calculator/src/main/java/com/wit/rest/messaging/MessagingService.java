@@ -33,11 +33,12 @@ public class MessagingService{
                         request
                 );
 
-        if (response != null) return mapper.readValue(response.getBody(), CalcMessage.class);
+        if (response != null) {
+            return mapper.readValue(response.getBody(), CalcMessage.class);
+        }
 
         return null;
 
     }
-
 
 }

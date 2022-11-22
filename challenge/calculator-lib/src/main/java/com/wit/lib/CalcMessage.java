@@ -10,11 +10,13 @@ public class CalcMessage implements Serializable {
     private BigDecimal a;
     private BigDecimal b;
     private String result;
+    private String identifier;
 
-    public CalcMessage(OperationType operation, BigDecimal a, BigDecimal b) {
+    public CalcMessage(OperationType operation, BigDecimal a, BigDecimal b, String identifier) {
         this.operation = operation;
         this.a = a;
         this.b = b;
+        this.identifier = identifier;
     }
 
     public CalcMessage() {}
@@ -51,6 +53,21 @@ public class CalcMessage implements Serializable {
         return result;
     }
 
+    public String getIdentifier() {
+        return identifier;
+    }
 
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 
+    @Override
+    public String toString() {
+        return "CalcMessage{" +
+                "operation=" + operation +
+                ", a=" + a +
+                ", b=" + b +
+                ", result='" + result + '\'' +
+                '}';
+    }
 }
